@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Purchase {
+
     public static void main(String[] args) {
         Shirts n = new Shirts("Blue Cotton Shirt", "BrandS",14.99,"blue","M");
         //System.out.println(n);
@@ -10,7 +13,27 @@ public class Purchase {
         //System.out.println(trousers);
         Shirts shirts = new Shirts("White Cotton Shirt","BrandS",15.99,"black","L");
 
-        Cashier cashier = new Cashier(n,shoes,jacket,trousers,shirts);
-        System.out.println(cashier);
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(n);
+        products.add(shoes);
+        products.add(jacket);
+        products.add(shirts);
+        products.add(trousers);
+
+        Cashier c = new Cashier();
+
+        String dateTime = "2022-02-02 12:34:56";
+
+        c.printReceipt(products,dateTime);
+
+        Product shirts1 = new Shirts("Blue Cotton Shirt","BrandS",29.99,"black","L");
+        Product shirts2 = new Shirts("White Cotton Shirt","BrandS",29.99,"black","M");
+        ArrayList<Product> products1 = new ArrayList<>();
+        products1.add(shirts1);
+        products1.add(shirts2);
+        String dt = "2022-02-02 12:34:56";
+        Cashier cashier = new Cashier();
+        cashier.printReceipt(products1,dt);
+
     }
 }
