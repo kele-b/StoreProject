@@ -66,9 +66,8 @@ public class Cashier {
 
     }
 
-    //Method to round double values in format x.xx
+    //Return String of round double values in format x.xx
     private String roundDouble(double value){
-        //return Math.round(value*100.0)/100.0;
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         return decimalFormat.format(value);
     }

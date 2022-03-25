@@ -40,8 +40,9 @@ public abstract class  Product {
         this.discountPercent = discountPercent;
     }
 
-    //Return double value of discount
+    //Return double value of discount and round it
     public double getDiscountPrice(){
-        return price * discountPercent / 100;
+        double discountPercent = price * this.discountPercent / 100;
+        return Math.round(discountPercent*100.0)/100.0;
     }
 }
