@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,7 +10,7 @@ public class Cashier {
     private double total;
 
     //String where all products will be concatenaded
-    private String productsToPrint;
+    private String productsToPrint ="";
 
     // Converting from String type to LocalDateTime type
     private LocalDateTime stringToDateTime(String dateTime){
@@ -65,9 +66,11 @@ public class Cashier {
 
     }
 
-    //Method to round double values in format xxx.xx
-    private double roundDouble(double value){
-        return Math.round(value*100.0)/100.0;
+    //Method to round double values in format x.xx
+    private String roundDouble(double value){
+        //return Math.round(value*100.0)/100.0;
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        return decimalFormat.format(value);
     }
 
 
