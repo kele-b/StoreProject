@@ -22,18 +22,31 @@ public class Purchase {
 
         Cashier c = new Cashier();
 
-        String dateTime = "2022-02-02 12:34:56";
+        String dateTime = "2022-02-01 12:34:56";
 
-        c.printReceipt(products,dateTime);
+        //c.printReceipt(products,dateTime);
 
         Product shirts1 = new Shirts("Blue Cotton Shirt","BrandS",29.99,"black","L");
         Product shirts2 = new Shirts("White Cotton Shirt","BrandS",29.99,"black","M");
         ArrayList<Product> products1 = new ArrayList<>();
         products1.add(shirts1);
         products1.add(shirts2);
-        String dt = "2022-02-02 12:34:56";
+        String dt = "2022-03-01 12:34:56";
         Cashier cashier = new Cashier();
-        cashier.printReceipt(products1,dt);
+       // cashier.printReceipt(products1,dt);
+
+        Cart cart = new Cart();
+        cart.addProductToCart(shirts1);
+        cart.addProductToCart(shirts2);
+        System.out.println(cart);
+        Cart cart1 = new Cart(shirts,shirts1,shirts2);
+        System.out.println(cart1);
+
+        Cashier cashier1 = new Cashier();
+        cashier1.printReceipt(cart,"2022-03-01 12:34:56");
+
+
+
 
     }
 }

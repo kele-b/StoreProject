@@ -4,7 +4,7 @@ public abstract class  Product {
     private String brand;
     private double price;
     private String color;
-    private int discountP;
+    private int discountPercent;        //Discount in percent
 
 
 
@@ -32,15 +32,16 @@ public abstract class  Product {
         return price;
     }
 
-    public int getDiscountP() {
-        return discountP;
+    public int getDiscountPercent() {
+        return discountPercent;
     }
 
-    public void setDiscountP(int discountP) {
-        this.discountP = discountP;
+    public void setDiscountPercent(int discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
+    //Return double value of discount
     public double getDiscountPrice(){
-        return price*discountP/100;
+        return price * discountPercent / 100;
     }
 }

@@ -1,7 +1,7 @@
 public class Shirts extends Product{
 
     String size;
-    static final String sizes[] = {"XS","S","M","L","XL","2XL"};
+    private static final String sizes[] = {"XS","S","M","L","XL","2XL"};
 
     public Shirts(String name, String brand, double price, String color, String size){
         super(name,brand,price,color);

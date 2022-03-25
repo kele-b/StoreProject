@@ -8,15 +8,15 @@ public class Trousers extends Product{
             this.size=size;
         }
         else
+            // to do - trow exception
             System.out.println("Entered wrong size!");
     }
 
     private boolean checkingSizeStandard(int size){
-        for(int i = 42; i<=66; i++){
+        for(int i = 42; i<=66; i+=2){
             if(i==size){
                 return true;
             }
-            i++;
         }
         return false;
     }

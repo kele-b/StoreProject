@@ -11,11 +11,10 @@ public class Jacket  extends Product{
             System.out.println("Entered wrong size!");
     }
     private boolean checkingSizeStandard(int size){
-        for(int i = 42; i<=66; i++){
+        for(int i = 42; i<=66; i+=2){
             if(i==size){
                 return true;
             }
-            i++;
         }
         return false;
     }
