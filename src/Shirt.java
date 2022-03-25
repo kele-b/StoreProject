@@ -1,19 +1,22 @@
-public class Shirts extends Product{
+public class Shirt extends Product{
 
     String size;
     private static final String sizes[] = {"XS","S","M","L","XL","2XL"};
 
-    public Shirts(String name, String brand, double price, String color, String size){
+    public Shirt(String name, String brand, double price, String color, String size){
         super(name,brand,price,color);
-        if(checkingSizeStandard(size))
+        if(isValidShirtSize(size))
             this.size=size.toUpperCase();
         else
-            System.out.println("Entered wrong size!");
-
+            try {
+                throw new Exception("Not valid shirt size!");
+            } catch (Exception e) {
+                System.out.println(e.getLocalizedMessage());
+            }
     }
 
 
-    private boolean checkingSizeStandard(String size){
+    private static boolean isValidShirtSize(String size){
         for(String s : sizes){
            if(s.equals(size.toUpperCase())) {
                return true;

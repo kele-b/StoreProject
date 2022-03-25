@@ -1,14 +1,12 @@
-import java.util.ArrayList;
-
 public class Purchase {
 
     public static void main(String[] args) {
 
         //Example #1
-        Shirts shirt1 = new Shirts("Blue Cotton Shirt", "BrandS",14.99,"blue","M");
-        Shirts shirt2 = new Shirts("White Cotton Shirt","BrandS",15.99,"white","M");
-        Trousers trousers1 = new Trousers("Black Cotton Trousers","BrandT",29.99, "black",50);
-        Shoes shoes1 = new Shoes("Black Leather Shoes", "BrandS",59.99,"black",43);
+        Shirt shirt1 = new Shirt("Blue Cotton Shirt", "BrandS",14.99,"blue","M");
+        Shirt shirt2 = new Shirt("White Cotton Shirt","BrandS",15.99,"white","M");
+        Trouser trousers1 = new Trouser("Black Cotton Trousers","BrandT",29.99, "black",75);
+        Shoe shoes1 = new Shoe("Black Leather Shoes", "BrandS",59.99,"black",43);
         Jacket jacket1 = new Jacket("Black Cotton Suit Jacket","BrandJ",99.99,"black",50);
 
 
@@ -21,8 +19,8 @@ public class Purchase {
 
 
         //Example #2
-        Product shirt3 = new Shirts("Blue Cotton Shirt","BrandS",29.99,"black","L");
-        Product shirt4 = new Shirts("White Cotton Shirt","BrandS",29.99,"black","M");
+        Product shirt3 = new Shirt("Blue Cotton Shirt","BrandS",29.99,"black","L");
+        Product shirt4 = new Shirt("White Cotton Shirt","BrandS",29.99,"black","M");
 
         Cart cart2 = new Cart();
         cart2.addProductToCart(shirt3);
@@ -35,11 +33,11 @@ public class Purchase {
 
 
         //Example #3
-        Trousers trousers2 = new Trousers("Red Linen Trousers","BrandT",49.99, "red",56);
-        Shoes shoes2 = new Shoes("Red Suede Shoes", "BrandS",59.99,"red",44);
-        Shoes shoes3 = new Shoes("Black Suede Shoes", "BrandS",59.99,"black",44);
+        Trouser trousers2 = new Trouser("Red Linen Trousers","BrandT",49.99, "red",56);
+        Shoe shoes2 = new Shoe("Red Suede Shoes", "BrandS",59.99,"red",44);
+        Shoe shoes3 = new Shoe("Black Suede Shoes", "BrandS",59.99,"black",44);
         Jacket jacket2 = new Jacket("Red Linen Suit Jacket","BrandJ",99.99,"red",56);
-        Shirts shirt5 = new Shirts("White Linen Shirt","BrandS",29.99,"white","l");
+        Shirt shirt5 = new Shirt("White Linen Shirt","BrandS",29.99,"white","l");
 
         Cart cart3 = new Cart(trousers2,shoes2,shoes3,jacket2,shirt5);
 

@@ -13,7 +13,7 @@ public class Cashier {
     private String productsToPrint ="";
 
     // Converting from String type to LocalDateTime type
-    private LocalDateTime stringToDateTime(String dateTime){
+    private static LocalDateTime stringToDateTime(String dateTime){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime localDateTime = LocalDateTime.parse(dateTime,formatter);
         return localDateTime;
@@ -22,27 +22,29 @@ public class Cashier {
     //Calculating total amount of all products with discount
     //Discount depend of number of item in cart and data (day in week)
     private void calculateAmountOfCart(Cart cart, String dateTime){
+        boolean isDayOfWeekThuesday = stringToDateTime(dateTime).getDayOfWeek().equals(DayOfWeek.TUESDAY);
+        boolean isMoreThenThreeProducts = cart.getProducts().size()>=3;
+
         for(Product p : cart.getProducts()){
 
             //In case that is more then 3 products to purchase and its thuesday
-            if((cart.getProducts().size()>=3)
-                    && stringToDateTime(dateTime).getDayOfWeek().equals(DayOfWeek.TUESDAY)){
-                if(p.getClass().equals(Shoes.class))
+            if(isMoreThenThreeProducts && isDayOfWeekThuesday){
+                if(p.getClass().equals(Shoe.class))
                     p.setDiscountPercent(25);
                 else
                     p.setDiscountPercent(20);
             }
 
             //in case that is more then 3 products, regardless of the day
-            else if(cart.getProducts().size()>=3){
+            else if(isMoreThenThreeProducts){
                 p.setDiscountPercent(20);
             }
 
             //In case that is less then 3 products and its thuesday
-            else if(stringToDateTime(dateTime).getDayOfWeek().equals(DayOfWeek.TUESDAY)){
-                if(p.getClass().equals(Shirts.class))
+            else if(isDayOfWeekThuesday){
+                if(p.getClass().equals(Shirt.class))
                     p.setDiscountPercent(10);
-                if(p.getClass().equals(Shoes.class))
+                if(p.getClass().equals(Shoe.class))
                     p.setDiscountPercent(25);
             }
 
@@ -52,6 +54,8 @@ public class Cashier {
     }
 
     public void printReceipt(Cart cart, String dateTime){
+        double totalDiscount;
+        double total;
         calculateAmountOfCart(cart,dateTime);
 
         //Concatenating all informations for each product to String
@@ -62,12 +66,12 @@ public class Cashier {
         //Concatenating all informations off products and receipt price amount to String
         System.out.println("Date: "+dateTime+"\n\n---Products---\n\n"+productsToPrint
                 +"---------------------------------\n\nSUBTOTAL: $"+cart.getSubTotal()
-                +"\nDISCOUNT: -$"+roundDouble(totalDiscount)+"\n\nTOTAL: $"+roundDouble(total)+"\n\n");
+                +"\nDISCOUNT: -$"+roundDouble(this.totalDiscount)+"\n\nTOTAL: $"+roundDouble(this.total)+"\n\n");
 
     }
 
     //Return String of round double values in format x.xx
-    private String roundDouble(double value){
+    private static String roundDouble(double value){
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         return decimalFormat.format(value);
     }
