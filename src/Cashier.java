@@ -29,7 +29,7 @@ public class Cashier {
 
             //In case that is more then 3 products to purchase and its thuesday
             if(isMoreThenThreeProducts && isDayOfWeekThuesday){
-                if(p.getClass().equals(Shoe.class))
+                if(p.getClass().equals(Shoes.class))
                     p.setDiscountPercent(25);
                 else
                     p.setDiscountPercent(20);
@@ -44,7 +44,7 @@ public class Cashier {
             else if(isDayOfWeekThuesday){
                 if(p.getClass().equals(Shirt.class))
                     p.setDiscountPercent(10);
-                if(p.getClass().equals(Shoe.class))
+                if(p.getClass().equals(Shoes.class))
                     p.setDiscountPercent(25);
             }
 

@@ -1,18 +1,14 @@
-public class Trouser extends Product{
+public class Trousers extends Product{
 
     int size;
 
-    public Trouser(String name, String brand, double price, String color, int size) {
+    public Trousers(String name, String brand, double price, String color, int size) {
         super(name, brand, price, color);
         if(isValidTrouserSize(size)){
             this.size=size;
         }
         else
-            try {
-                throw new Exception("Not valid trouser size!");
-            } catch (Exception e) {
-                System.out.println(e.getLocalizedMessage());
-            }
+            throw new IllegalArgumentException("Invalid trousers size!");
     }
 
     private static boolean isValidTrouserSize(int size){

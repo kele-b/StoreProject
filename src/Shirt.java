@@ -3,16 +3,12 @@ public class Shirt extends Product{
     String size;
     private static final String sizes[] = {"XS","S","M","L","XL","2XL"};
 
-    public Shirt(String name, String brand, double price, String color, String size){
+    public Shirt(String name, String brand, double price, String color, String size) {
         super(name,brand,price,color);
         if(isValidShirtSize(size))
             this.size=size.toUpperCase();
         else
-            try {
-                throw new Exception("Not valid shirt size!");
-            } catch (Exception e) {
-                System.out.println(e.getLocalizedMessage());
-            }
+            throw new IllegalArgumentException("Invalid shirt size!");
     }
 
 

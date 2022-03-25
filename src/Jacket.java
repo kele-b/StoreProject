@@ -8,11 +8,7 @@ public class Jacket  extends Product{
             this.size=size;
         }
         else
-            try {
-                throw new Exception("Not valid jacket size!");
-            } catch (Exception e) {
-                System.out.println(e.getLocalizedMessage());
-            }
+            throw new IllegalArgumentException("Invalid jacket size!");
     }
     private static boolean isValidJacketSize(int size){
         if((size>=42 && size<=66) && size%2==0)
